@@ -1,0 +1,22 @@
+{
+  "name": "pioneerproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katevontaine/pioneerProject.git"
+  },
+  "author": "Kate Wilson <wilsonkate.kw@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katevontaine/pioneerProject/issues"
+  },
+  "homepage": "https://github.com/katevontaine/pioneerProject#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
