@@ -14,17 +14,16 @@ for ( var name in allPioneers){
   allPioneers[name] = Pioneer(allPioneers[name]);
 }
 
-exports.flight = function(req, res){
+exports.pioneer = function(req, res){
   res.json(pioneer.getInfo());
+  console.log(pioneer.getInfo());
+  console.log("im here");
 };
-
-
 
 module.exports = function(info){
   var instance = new Pioneer();
   instance.fill(info)
   return instance;
 }
-
 
 //pioneer, field, image url, description

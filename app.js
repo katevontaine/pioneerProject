@@ -1,10 +1,10 @@
-var pioneer = require('./pioneer');
+var Pioneer = require('./pioneer');
 var routes = require ('./routes');
 var express = require('express');
 var http = require('http');
 var path = require('path');
 var bodyParser = require('body-parser')
-var app = connect();
+var port = process.env.PORT || 3001;
 
 
 // pioneer.setName('Marina A');
@@ -16,35 +16,35 @@ var app = connect();
 
 var app = express();
 
-app.set('port', 3000);
-app.set("views", __dirname + '/views');
-app.set('view engine', 'jade');
+app.set(port);
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
+// app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(logger('dev'));
+// app.use(methodOverride());
+// app.use(session({ resave: true,
+//                   saveUninitialized: true,
+//                   secret: 'uwotm8' }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(multer());
+app.use(express.static(path.join(__dirname, 'app4')));
 
-app.use(connect.serve-favicon());
 
-
-app.use(connect.morgan('dev'));
-
-
-app.use(connect.body-parser());
-//app.use(bodyParser.urlencoded())
-
-
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(pioneerProject, 'public')));
-
-app.get('/pioneer', routes.pioneer);
+app.get('/pioneer', routes.pioneers);
 app.get('/pioneer/:name', routes.pioneer);
+// app.get('/allpioneers', routes.allPioneers);
+// app.get('/pioneer/:number', routes.pioneer)
 
-if('development' == app.get('env')){
-  app.use(express.errorHandler());
 
-}
+app.listen(port, function() {
+  console.log('APP LISTENING ON PORT: ', port);
+});
 
-//app.get('/pioneers', routes.pioneers);
-//app.get('/pioneer/:number', routes.pioneer)
 
-http.createServer(app).listen(app.get('port')), function(){
-  console.log('Express server listening on port' + 'port');
-};
+
+
+
+
+
+//
